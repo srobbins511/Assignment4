@@ -21,6 +21,7 @@ class Registrar
         int medianStuWait;
         int *waitTimes;
         int maxWindowIdle;
+        Student* buffer;
 
         Registrar();
         Registrar(int numWindows);

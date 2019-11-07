@@ -18,7 +18,7 @@ class GenDoubleLinkedList
 
         void insertFront(int k,T d);
         void insertBack(int k,T d);
-        T removeFront();
+        T* removeFront();
         T removeBack();
         GenListNode<T>* remove(int k);
         T deletePos(int pos);
@@ -75,7 +75,7 @@ void GenDoubleLinkedList<T>::insertFront(int k, T data)
 }
 
 template<typename T>
-T GenDoubleLinkedList<T>::removeFront()
+T* GenDoubleLinkedList<T>::removeFront()
 {
     //check if empty before attempting to remove anything
     if( front == NULL )
@@ -95,9 +95,8 @@ T GenDoubleLinkedList<T>::removeFront()
         front->next->prev = NULL;
     }
     front = front->next;
-    T temp = ft->data;
     ft->next = NULL;
-    delete ft;
+    T* temp = &(ft->data);
     size--;
     return temp;
 }

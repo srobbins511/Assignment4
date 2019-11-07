@@ -4,6 +4,7 @@ using namespace std;
 
 Registrar::Registrar()
 {
+    buffer = NULL;
     Windows = new Window*[1];
     maxWindowIdle = 0;
     for(int i = 0; i < 1; ++i)
@@ -42,8 +43,8 @@ void Registrar::update()
         {
             if(!line->isEmpty())
             {
-                Student temp = line->remove();
-                Windows[i]->helpStudent(&temp);;
+                buffer = line->remove();
+                Windows[i]->helpStudent(buffer);
             }
         }
         Windows[i]->checkCustomerFinished();

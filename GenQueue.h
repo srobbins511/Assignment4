@@ -15,7 +15,7 @@ class GenQueue
         //core functions
 
         void insert(int k,T d);
-        T remove();
+        T* remove();
         
 
         //aux functions
@@ -53,9 +53,9 @@ void GenQueue<T>::insert(int k, T d)
 }
 
 template<typename T>
-T GenQueue<T>::remove()
+T* GenQueue<T>::remove()
 {
-    T temp;
+    T *temp;
     try
     {
         temp = myQueue->removeFront();

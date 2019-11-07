@@ -73,22 +73,22 @@ SimulateDay::~SimulateDay()
 
 void SimulateDay::simulate()
 {
-    cout<< "Arrivals status: " << Arrivals->isEmpty() << endl;
-    while((!Arrivals->isEmpty()) || !reg->checkAllWindows())
+    while((!Arrivals->isEmpty()) || !reg->checkAllWindows() || !reg->line->isEmpty())
     {
         ++time;
         Student temp;
         if(!Arrivals->isEmpty())
-            cout <<"Time of Arrival " << Arrivals->peek().timeArrival << endl;
-        while( Arrivals->peek().timeArrival <= time)
         {
-            temp = Arrivals->pop();
-            cout << "Pop an Arrival" << endl;
-            reg->line->insert(temp.id, temp);
-            cout << "Line Size: " << reg->line->getSize() << endl;
-            if(Arrivals->isEmpty())
+            while(Arrivals->peek().timeArrival <= time)
             {
-                break;
+                temp = Arrivals->pop();
+                cout << "Pop an Arrival" << endl;
+                reg->line->insert(temp.id, temp);
+                cout << "Line Size: " << reg->line->getSize() << endl;
+                if(Arrivals->isEmpty())
+                {
+                    break;
+                }
             }
         }
         reg->update();
