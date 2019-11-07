@@ -59,7 +59,6 @@ SimulateDay::SimulateDay(std::string fname)
     for(int i = (numStudentsCreated-1); i>=0; --i)
     {
         Arrivals->push(*students[i]);
-        cout << "Push posiition: " << i << endl;
     }
 }
 
@@ -82,9 +81,7 @@ void SimulateDay::simulate()
             while(Arrivals->peek().timeArrival <= time)
             {
                 temp = Arrivals->pop();
-                cout << "Pop an Arrival" << endl;
                 reg->line->insert(temp.id, temp);
-                cout << "Line Size: " << reg->line->getSize() << endl;
                 if(Arrivals->isEmpty())
                 {
                     break;
@@ -92,8 +89,7 @@ void SimulateDay::simulate()
             }
         }
         reg->update();
-        cout << "Time: " << time << endl;
-        cout<< "Arrivals status: " << Arrivals->isEmpty() << endl;
     }
+    cout << "Total Time: " << time << endl;
     cout<< "Max Window Idle Time:" << reg->maxWindowIdle << endl;
 }

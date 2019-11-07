@@ -17,7 +17,6 @@ Registrar::Registrar()
 
 Registrar::Registrar(int numWindows)
 {
-    cout << "Num Windows called " << numWindows << endl;
     size = numWindows;
     Windows = new Window*[size];
     for(int i = 0; i < size; ++i)
@@ -36,7 +35,6 @@ Registrar::~Registrar()
 
 void Registrar::update()
 {
-    cout << "Update called" << endl;
     for(int i = 0; i<size; ++i)
     {
         if(Windows[i]->isIdle)
@@ -53,7 +51,6 @@ void Registrar::update()
 
 bool Registrar::checkAllWindows()//if all the windows are empty return true
 {
-    cout << "called size: " << size << endl;
     bool val = true;
     for(int i = 0; i<size; ++i)
     {
@@ -64,9 +61,7 @@ bool Registrar::checkAllWindows()//if all the windows are empty return true
         if(Windows[i]->MaxIdle > maxWindowIdle)
         {
             maxWindowIdle = Windows[i]->MaxIdle;
-            cout << "max idle " << maxWindowIdle << endl;
         }
     }
-    cout << "check all windows fini" << endl;
     return val;
 }

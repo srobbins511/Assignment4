@@ -17,7 +17,6 @@ int main(int argc, char** argv)
         fname = argv[1];   
     }
     SimulateDay* prgm = new SimulateDay(fname);
-    cout<< "Created the Simulation" << endl;
     prgm->simulate();
     return 0;
 }
